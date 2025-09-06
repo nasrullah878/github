@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Static Site</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <h1>Welcome to My Static Site!</h1>
-  </header>
-  <main>
-    <p>This i  s a simple static website hosted on AWS S3 and ...</p>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-600 p-4 text-white flex justify-between items-center shadow-lg">
+    <div class="flex items-center space-x-2">
+      <img src="assets/logo.png" alt="Logo" class="h-8 w-8 rounded-full">
+      <span class="text-xl font-bold">My Dashboard</span>
+    </div>
+    <ul class="hidden md:flex space-x-6">
+      <li><a href="#docs" class="hover:underline">Docs</a></li>
+      <li><a href="#games" class="hover:underline">Games</a></li>
+      <li><a href="#experience" class="hover:underline">Experience</a></li>
+    </ul>
+    <button class="md:hidden" id="menu-btn">☰</button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden p-4 hidden" id="mobile-menu">
+    <a href="#docs" class="block py-2">Docs</a>
+    <a href="#games" class="block py-2">Games</a>
+    <a href="#experience" class="block py-2">Experience</a>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-4 space-y-12">
+
+    <!-- Docs Section -->
+    <section id="docs">
+      <h2 class="section-title">📚 Documentation</h2>
+      <div id="docs-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games">
+      <h2 class="section-title">🎮 Games</h2>
+      <div id="games-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2 class="section-title">💼 Experience</h2>
+      <div id="experience-container" class="space-y-4"></div>
+    </section>
+
   </main>
-  <footer>
-    <p>© updated  2025 Nasrullah Khan son of jamal shah khan</p>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white text-center p-4 mt-12">
+    <p>&copy; 2025 My Dashboard | Made with ❤️</p>
   </footer>
+
+  <!-- Scripts -->
+  <script src="scripts.js"></script>
 </body>
 </html>

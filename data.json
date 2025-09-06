@@ -1,0 +1,15 @@
+{
+  "docs": [
+    { "title": "Game Guide 1", "link": "#", "description": "Tips for beginner players" },
+    { "title": "Game Guide 2", "link": "#", "description": "Advanced strategies" }
+  ],
+  "games": [
+    { "name": "Snake Game", "link": "#", "description": "Classic snake game" },
+    { "name": "Tic Tac Toe", "link": "#", "description": "Play vs AI or friend" }
+  ],
+  "experience": [
+    { "title": "Project A", "date": "2024", "description": "Developed a web dashboard" },
+    { "title": "Project B", "date": "2023", "description": "Built a mobile game" }
+  ]
+}
+
