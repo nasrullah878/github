@@ -16,7 +16,8 @@
 </div>
 
 <script>
-const API_BASE = "http://YOUR_VM_PUBLIC_IP"; // replace with your VM IP
+// Set API base to your ngrok public URL
+const API_BASE = "https://b186cb72fd6d.ngrok-free.app";
 
 async function loadUsers() {
   const res = await fetch(`${API_BASE}/get_users.php`);
