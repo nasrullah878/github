@@ -25,7 +25,7 @@
       display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center
     }
     .logo{display:flex;align-items:center;gap:14px}
-    .badge{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;font-weight:800;color:#022;box-shadow:0 6px 20px rgba(125,211,252,0.12)}
+    .badge{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;font-weight:800;color:#022;box-shadow:0 6px 20px rgba(125,211,252,0.12);font-size:28px}
     h1{margin:0;font-size:28px;letter-spacing:-0.4px}
     p.lead{margin:10px 0 0;color:var(--muted)}
     .status{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(125,211,252,0.06), rgba(255,255,255,0.01));border:1px solid rgba(125,211,252,0.08);display:inline-flex;gap:10px;align-items:center}
@@ -56,10 +56,11 @@
   <main class="card">
     <section>
       <div class="logo">
-        <div class="badge">D</div>
+        <div class="badge">N</div>
         <div>
           <h1>Devoptio — Under Development</h1>
           <p class="lead">We're building something useful. Work is starting now — check back soon.</p>
+          <p style="margin-top:8px;font-weight:600;color:var(--accent)">By NASRULLAH</p>
         </div>
       </div>
 
@@ -69,35 +70,10 @@
 
       <p style="margin-top:20px;color:var(--muted)">Need to contact us? Email <strong>hello@devoptio.example</strong> or follow progress on our socials.</p>
 
-      <footer>© Devoptio — Built with care.</footer>
+      <footer>© Devoptio — Built with care. Crafted by NASRULLAH.</footer>
     </section>
 
     <aside class="right">
       <div class="meta">
         <div class="item"><div class="muted">Project status</div><div>Initial build</div></div>
-        <div class="item"><div class="muted">Next milestone</div><div>Design & MVP</div></div>
-        <div class="item"><div class="muted">Estimated launch</div><div>To be decided</div></div>
-      </div>
-
-      <div style="margin-top:16px">
-        <div class="muted">Stay updated</div>
-        <div class="cta">
-          <button class="btn primary" onclick="copyEmail()">Copy email</button>
-          <button class="btn ghost" onclick="openTwitter()">Follow</button>
-        </div>
-      </div>
-
-      <script>
-        function copyEmail(){
-          navigator.clipboard && navigator.clipboard.writeText('hello@devoptio.example')
-            .then(()=> alert('Email copied to clipboard'))
-            .catch(()=> alert('Copy failed — manually select and copy'))
-        }
-        function openTwitter(){
-          window.open('https://twitter.com', '_blank')
-        }
-      </script>
-    </aside>
-  </main>
-</body>
-</html>
+        <div class="item"><div class="muted">Next
