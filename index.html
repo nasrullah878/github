@@ -1,70 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Dashboard</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f6f9; }
-    h1 { color: #333; }
-    .card { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    input, button { padding: 10px; margin: 5px 0; width: 100%; border: 1px solid #ccc; border-radius: 5px; }
-    button { background: #007bff; color: #fff; border: none; cursor: pointer; }
-    button:hover { background: #0056b3; }
-    ul { list-style: none; padding: 0; }
-    li { padding: 8px; border-bottom: 1px solid #ddd; }
-  </style>
-</head>
-<body>
+<!-- Add User Form -->
+<div class="card">
+  <h2>Add User</h2>
+  <form id="userForm">
+    <input type="text" id="name" placeholder="Enter name" required>
+    <input type="email" id="email" placeholder="Enter email" required>
+    <input type="text" id="address" placeholder="Enter address" required>
+    <button type="submit">Add User</button>
+  </form>
+</div>
 
-  <h1>📊 My Dashboard</h1>
+<!-- Users List -->
+<div class="card">
+  <h2>Users List</h2>
+  <ul id="users"></ul>
+</div>
 
-  <!-- Add User Form -->
-  <div class="card">
-    <h2>Add User</h2>
-    <form id="userForm">
-      <input type="text" id="name" placeholder="Enter name" required>
-      <input type="email" id="email" placeholder="Enter email" required>
-      <button type="submit">Add User</button>
-    </form>
-  </div>
+<script>
+const API_BASE = "http://YOUR_VM_PUBLIC_IP"; // replace with your VM IP
 
-  <!-- User List -->
-  <div class="card">
-    <h2>Users List</h2>
-    <ul id="users"></ul>
-  </div>
+async function loadUsers() {
+  const res = await fetch(`${API_BASE}/get_users.php`);
+  const data = await res.json();
+  const list = document.getElementById("users");
+  list.innerHTML = "";
+  data.forEach(user => {
+    list.innerHTML += `<li>${user.name} (${user.email}) - ${user.address}</li>`;
+  });
+}
 
-  <script>
-    const API_BASE = "http://YOUR_VM_PUBLIC_IP"; // 🔹 Change this to your VM's public IP or domain
+document.getElementById("userForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const address = document.getElementById("address").value;
 
-    async function loadUsers() {
-      const res = await fetch(`${API_BASE}/get_users.php`);
-      const data = await res.json();
-      const list = document.getElementById("users");
-      list.innerHTML = "";
-      data.forEach(user => {
-        list.innerHTML += `<li>${user.name} (${user.email})</li>`;
-      });
-    }
+  await fetch(`${API_BASE}/add_user.php`, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&address=${encodeURIComponent(address)}`
+  });
 
-    document.getElementById("userForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
+  document.getElementById("userForm").reset();
+  loadUsers();
+});
 
-      await fetch(`${API_BASE}/add_user.php`, {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`
-      });
-
-      document.getElementById("userForm").reset();
-      loadUsers();
-    });
-
-    // Load users on page start
-    loadUsers();
-  </script>
-</body>
-</html>
+// Load users on page start
+loadUsers();
+</script>
