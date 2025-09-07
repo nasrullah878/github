@@ -4,61 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f6f9; }
+    h1 { color: #333; }
+    .card { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    input, button { padding: 10px; margin: 5px 0; width: 100%; border: 1px solid #ccc; border-radius: 5px; }
+    button { background: #007bff; color: #fff; border: none; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 8px; border-bottom: 1px solid #ddd; }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body>
 
-  <!-- Navbar -->
-  <nav class="bg-blue-600 p-4 text-white flex justify-between items-center shadow-lg">
-    <div class="flex items-center space-x-2">
-      <img src="assets/logo.png" alt="Logo" class="h-8 w-8 rounded-full">
-      <span class="text-xl font-bold">My Dashboard</span>
-    </div>
-    <ul class="hidden md:flex space-x-6">
-      <li><a href="#docs" class="hover:underline">Docs</a></li>
-      <li><a href="#games" class="hover:underline">Games</a></li>
-      <li><a href="#experience" class="hover:underline">Experience</a></li>
-    </ul>
-    <button class="md:hidden" id="menu-btn">☰</button>
-  </nav>
+  <h1>📊 My Dashboard</h1>
 
-  <!-- Mobile Menu -->
-  <div class="md:hidden p-4 hidden" id="mobile-menu">
-    <a href="#docs" class="block py-2">Docs</a>
-    <a href="#games" class="block py-2">Games</a>
-    <a href="#experience" class="block py-2">Experience</a>
+  <!-- Add User Form -->
+  <div class="card">
+    <h2>Add User</h2>
+    <form id="userForm">
+      <input type="text" id="name" placeholder="Enter name" required>
+      <input type="email" id="email" placeholder="Enter email" required>
+      <button type="submit">Add User</button>
+    </form>
   </div>
 
-  <!-- Main Content -->
-  <main class="container mx-auto p-4 space-y-12">
+  <!-- User List -->
+  <div class="card">
+    <h2>Users List</h2>
+    <ul id="users"></ul>
+  </div>
 
-    <!-- Docs Section -->
-    <section id="docs">
-      <h2 class="section-title">📚 Documentation</h2>
-      <div id="docs-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </section>
+  <script>
+    const API_BASE = "http://YOUR_VM_PUBLIC_IP"; // 🔹 Change this to your VM's public IP or domain
 
-    <!-- Games Section -->
-    <section id="games">
-      <h2 class="section-title">🎮 Games</h2>
-      <div id="games-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </section>
+    async function loadUsers() {
+      const res = await fetch(`${API_BASE}/get_users.php`);
+      const data = await res.json();
+      const list = document.getElementById("users");
+      list.innerHTML = "";
+      data.forEach(user => {
+        list.innerHTML += `<li>${user.name} (${user.email})</li>`;
+      });
+    }
 
-    <!-- Experience Section -->
-    <section id="experience">
-      <h2 class="section-title">💼 Experience</h2>
-      <div id="experience-container" class="space-y-4"></div>
-    </section>
+    document.getElementById("userForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
 
-  </main>
+      await fetch(`${API_BASE}/add_user.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`
+      });
 
-  <!-- Footer -->
-  <footer class="bg-blue-600 text-white text-center p-4 mt-12">
-    <p>&copy; 2025 My Dashboard | Made with ❤️</p>
-  </footer>
+      document.getElementById("userForm").reset();
+      loadUsers();
+    });
 
-  <!-- Scripts -->
-  <script src="scripts.js"></script>
+    // Load users on page start
+    loadUsers();
+  </script>
 </body>
 </html>
