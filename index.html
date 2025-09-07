@@ -1,21 +1,103 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Test Add User</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Devoptio — Under Construction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#7dd3fc;
+      --muted:#94a3b8;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial}
+    body{
+      display:grid;place-items:center;padding:24px;background:linear-gradient(180deg,#071023 0%, #071a2a 60%);color: #e6eef8;
+    }
+    .card{
+      width:100%;max-width:880px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);backdrop-filter: blur(6px);padding:36px;border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center
+    }
+    .logo{display:flex;align-items:center;gap:14px}
+    .badge{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:grid;place-items:center;font-weight:800;color:#022;box-shadow:0 6px 20px rgba(125,211,252,0.12)}
+    h1{margin:0;font-size:28px;letter-spacing:-0.4px}
+    p.lead{margin:10px 0 0;color:var(--muted)}
+    .status{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(125,211,252,0.06), rgba(255,255,255,0.01));border:1px solid rgba(125,211,252,0.08);display:inline-flex;gap:10px;align-items:center}
+    .pulse{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 10px rgba(125,211,252,0.7);animation:pulse 1.6s infinite}
+    @keyframes pulse{0%{transform:scale(.9);opacity:.6}50%{transform:scale(1.2);opacity:1}100%{transform:scale(.9);opacity:.6}}
+
+    .right{
+      padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.03);
+    }
+    .meta{display:flex;flex-direction:column;gap:12px}
+    .meta .item{display:flex;justify-content:space-between;align-items:center}
+    .muted{color:var(--muted);font-size:13px}
+    .countdown{font-weight:700;font-size:20px}
+    .cta{display:flex;gap:10px;margin-top:8px}
+    .btn{padding:10px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#042033}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(125,211,252,0.12)}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px}
+
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr;}
+      .right{order:2}
+    }
+  </style>
 </head>
 <body>
-  <h2>Add User</h2>
-  <form action="add_user.php" method="POST">
-    <label>Name:</label>
-    <input type="text" name="name" required><br><br>
+  <main class="card">
+    <section>
+      <div class="logo">
+        <div class="badge">D</div>
+        <div>
+          <h1>Devoptio — Under Development</h1>
+          <p class="lead">We're building something useful. Work is starting now — check back soon.</p>
+        </div>
+      </div>
 
-    <label>Email:</label>
-    <input type="email" name="email" required><br><br>
+      <div style="margin-top:20px">
+        <div class="status"><div class="pulse"></div><div style="font-weight:600">Work in progress</div></div>
+      </div>
 
-    <label>Address:</label>
-    <input type="text" name="address" required><br><br>
+      <p style="margin-top:20px;color:var(--muted)">Need to contact us? Email <strong>hello@devoptio.example</strong> or follow progress on our socials.</p>
 
-    <button type="submit">Add User</button>
-  </form>
+      <footer>© Devoptio — Built with care.</footer>
+    </section>
+
+    <aside class="right">
+      <div class="meta">
+        <div class="item"><div class="muted">Project status</div><div>Initial build</div></div>
+        <div class="item"><div class="muted">Next milestone</div><div>Design & MVP</div></div>
+        <div class="item"><div class="muted">Estimated launch</div><div>To be decided</div></div>
+      </div>
+
+      <div style="margin-top:16px">
+        <div class="muted">Stay updated</div>
+        <div class="cta">
+          <button class="btn primary" onclick="copyEmail()">Copy email</button>
+          <button class="btn ghost" onclick="openTwitter()">Follow</button>
+        </div>
+      </div>
+
+      <script>
+        function copyEmail(){
+          navigator.clipboard && navigator.clipboard.writeText('hello@devoptio.example')
+            .then(()=> alert('Email copied to clipboard'))
+            .catch(()=> alert('Copy failed — manually select and copy'))
+        }
+        function openTwitter(){
+          window.open('https://twitter.com', '_blank')
+        }
+      </script>
+    </aside>
+  </main>
 </body>
 </html>
