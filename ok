@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- First section is navigation bar -->
+    <div class="main_continer">
+        <header>
+            <div class="header_continer">
+                <!-- first div -->
+                <div id="logo_info">
+                    <img src="./images/logo-transparent-png.png" alt="logo is missing">
+                </div>
+                <!-- 2nd div -->
+                <div id="navbar">
+                    <div class="nav">
+                        <ul>
+                            <li><a href="####">Home</a></li>
+                            <li><a href="####">About</a></li>
+                            <li><a href="Classee">Classes</a></li>
+                            <li><a href="$$$$">Contact</a></li>
+                            <li><a href="&&&&">Services</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 3rd div -->
+
+                <div id="register">
+                    <button class="btn"><a href="login.html">Login</a></button>
+                </div>
+
+
+                <!-- 4th div -->
+                <div id="links">
+                    <div class="links_icons">
+                        <a href=""><i class="fa fa-search" aria-hidden="true"></i></a>
+                    </div>
+
+                    <div class="links_icons"><a href=""><i class="fab fa-instagram"></i></a></div>
+                    <div class="links_icons"><a href=""><i class="fab fa-facebook"></i>
+                        </a></div>
+                </div>
+
+            </div>
+        </header>
+    </div>
+
+
+    <section class="banner">
+        <div id="banner">
+            <div class="heading">
+                <h1>"Welcome to Your New Fitness Family — Let's Get Strong Together!"</h1>
+            </div>
+            <div class="strong_msg">
+                <p>Be <strong style="color: red"> Strong </strong></p>
+                <p>Let's Together</p>
+            </div>
+            <div class="msg">
+                <p>Your fitness journey starts with a single step — take it today.</p>
+                <p>Stronger every day, not just in body, but in mind and spirit.</p>
+                <p>Push your limits — progress lives outside your comfort zone.</p>
+                <p>Consistency beats perfection — show up and grow stronger.</p>
+
+            </div>
+            <button id="regi"><a href="form.html" target="_blank">Fill Registration Form</a></button>
+        </div>
+    </section>
+
+    <!-- 2nd section for start -->
+    <!-- it contain the info that why you choose us -->
+    <section class="why-choose-us">
+    <h2>Why Choose Us</h2>
+    <div class="features">
+      <div class="feature-box">
+        <i class="fas fa-dumbbell"></i>
+        <h3>Certified Trainers</h3>
+        <p>Expert, qualified trainers to guide you at every step.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-cogs"></i>
+        <h3>Modern Equipment</h3>
+        <p>Train with the latest machines and professional gear.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-wallet"></i>
+        <h3>Flexible Plans</h3>
+        <p>Affordable membership options to fit your lifestyle.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fas fa-users"></i>
+        <h3>Supportive Environment</h3>
+        <p>Join a positive and motivating fitness community.</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- 3rd section start where we give a classes info-->
+     <section>
+        <div class="section3_continer">
+            <h2> <strong>Our Classes</strong></h2>
+            <div class="section3_continer2">
+                <div class="section3_boxes">
+                    <p>GYM</p>
+                    <div class="showclasses"><img src="./images/gym/gym1.jpg" alt=""></div>
+                </div>
+                <div class="section3_boxes">
+                    <p>HEALTH</p>
+                    <div class="showclasses"><img src="./images/health/health.jpg" alt=""></div>
+                    
+                </div>
+                <div class="section3_boxes">
+                    <p>YUGA</p>
+                   <div class="showclasses"><img src="./images/yoga/yuga.jpg" alt=""></div>
+                </div>
+                <div class="section3_boxes">
+                    <p>WORKOUT</p>
+                    <div class="showclasses"><img src="./images/workout/workout.jpg" alt=""></div>
+                </div>
+                <div class="section3_boxes">
+                    <p>BOXING</p>
+                    <div class="showclasses"><img src="./images/box/box.jpg" alt=""></div>
+                    
+                </div>
+                <div class="section3_boxes">
+                    <p>FITNESS</p>
+                    <div class="showclasses"><img src="./images/workout/workout.jpg" alt=""></div>
+                    
+                </div>
+            </div>
+        </div>
+     </section>
+
+     <div class="footer">
+        <footer class="footer">
+          <div class="footerbox">
+          <div class="footer_box">
+            <p class="headings">About us</p>
+            <div class="attri">
+           <p>Our gym is a place where fitness, strength, and motivation come together. We offer top-quality equipment, certified trainers, and a friendly environment for all fitness levels. Whether you're a beginner or a pro, we're here to support your fitness journey every step of the way.</p>
+            </div>
+            
+          </div>
+          <div class="footer_box">
+            <p class="headings">Contact Us</p>
+             <div class="attri">
+             <p>Phone: +92420954886 </p>
+            <p>Email: enasrullahkhan@gmail.com</p>
+            <p>Find US on Linkdin: Nasrullah khan</p>
+            <p>githun : nasrullah878</p>
+             </div>
+            
+          </div>
+          <div class="footer_box">
+            <p class="headings">Address</p>
+            <div class="attri">
+                <address>
+                UET Mardan Charsada Road <br>
+                Visit us at: Main Street, Near City Mall, Khyber, Pakistan.    
+            </address>
+            </div>
+            
+          </div>
+          </div>
+          <div class="copywrite">© 2025 FitZone Gym. All rights reserved. No part of this website may be reproduced without written permission.</div>
+        </footer>
+     </div>
+
+</body>
+<script src="app.js"></script>
+</html>
