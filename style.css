@@ -10,11 +10,15 @@ body {
 
 /* NAVBAR */
 .main_continer {
+    .main_continer {
     width: 100%;
-    padding: 0 20px;       /* only left/right padding */
-    height: 40px;          /* shorter navbar */
-    line-height: 40px;     /* vertically centers text */
-    background-color: #000;
+    padding: 0 20px;       /* reduce vertical padding */
+    height: 40px;          /* smaller navbar */
+    line-height: 40px;     /* centers links vertically */
+    font-size: 14px;    
+    padding: 0 10px;  
+    background-color: #000; /* keep navbar black */
+}
   
 }
 
