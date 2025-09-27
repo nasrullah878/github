@@ -11,9 +11,11 @@ body {
 /* NAVBAR */
 .main_continer {
     width: 100%;
-    height: 50px;          /* reduce height */
-  padding: 5px 20px; 
-    position: static;
+    padding: 0 20px;       /* only left/right padding */
+    height: 40px;          /* shorter navbar */
+    line-height: 40px;     /* vertically centers text */
+    background-color: #000;
+  
 }
 
 .header_continer {
